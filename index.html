@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بطاقة المعايدة</title>
+    <style>
+        body {
+    font-family: 'Tegwal', sans-serif;
+    text-align: center;
+    direction: rtl;
+    background-color: #f8f8f8;
+}
+
+
+        .container {
+            margin-top: 50px;
+        }
+
+        input {
+            padding: 10px;
+            width: 250px;
+            font-size: 18px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .card {
+    width: 600px;
+    height: 600px;
+    position: relative;
+    margin: auto;
+    background: url('https://res.cloudinary.com/dfmrgs5rh/image/upload/v1742677251/011.jpg_lq0mny.jpg') no-repeat center center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+}
+/* تعديل موضع النص */
+.card span {
+    position: absolute;
+    top: 70%; /* نزّل النص أكثر حسب الحاجة */
+    transform: translateY(-50%);
+}
+
+        .download-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: rgb(197, 15, 15);
+            color: rgb(255, 255, 255);
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .download-btn:hover {
+            background-color: darkgreen;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>اكتب اسمك لتخصيص كارت المعايدة</h2>
+        <input type="text" id="nameInput" placeholder="اكتب اسمك هنا..." oninput="updateName()">
+        <div class="card" id="card">
+            <span id="nameText">الاسم يظهر هنا</span>
+        </div>
+        <button class="download-btn" onclick="downloadImage()">تحميل الصورة</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script>
+        function updateName() {
+            let name = document.getElementById("nameInput").value;
+            document.getElementById("nameText").textContent = name || "الاسم يظهر هنا";
+        }
+        function downloadImage() {
+    html2canvas(document.getElementById("card"), { useCORS: true }).then(canvas => {
+        let link = document.createElement("a");
+        link.download = "greeting-card.png";
+        link.href = canvas.toDataURL("image/png");
+        link.click();
+        alert("تم تحميل الصورة بنجاح!");
+    });
+}
+
+    </script>
+
+</body>
+</html>
