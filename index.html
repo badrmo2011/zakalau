@@ -4,45 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>بطاقة المعايدة</title>
+    
+           <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@500&display=swap" rel="stylesheet">
+
     <style>
         body {
-    font-family: 'Tegwal', sans-serif;
-    text-align: center;
+            font-family: "Tajawal", sans-serif;
+            font-weight: 500;
     direction: rtl;
     background-color: #f8f8f8;
 }
 
 
-        .container {
-            margin-top: 50px;
-        }
+    .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
 
-        input {
-            padding: 10px;
-            width: 250px;
-            font-size: 18px;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
+input, button {
+    margin: 10px auto;
+    display: block;
+}
         .card {
     width: 600px;
     height: 600px;
     position: relative;
     margin: auto;
-    background: url('https://res.cloudinary.com/dfmrgs5rh/image/upload/v1742677251/011.jpg_lq0mny.jpg') no-repeat center center;
+    background: url('https://res.cloudinary.com/dfmrgs5rh/image/upload/v1742682646/011_wsni5c.jpg') no-repeat center center;
     background-size: cover;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 30px;
     font-weight: bold;
-    color: rgb(0, 0, 0);
+    color: rgb(12, 87, 107);
 }
 /* تعديل موضع النص */
 .card span {
     position: absolute;
-    top: 70%; /* نزّل النص أكثر حسب الحاجة */
+    top: 80%; /* نزّل النص أكثر حسب الحاجة */
     transform: translateY(-50%);
 }
 
@@ -65,7 +70,7 @@
 <body>
 
     <div class="container">
-        <h2>اكتب اسمك لتخصيص كارت المعايدة</h2>
+        <h2>اكتب اسمك لتخصيص بطاقة المعايدة</h2>
         <input type="text" id="nameInput" placeholder="اكتب اسمك هنا..." oninput="updateName()">
         <div class="card" id="card">
             <span id="nameText">الاسم يظهر هنا</span>
